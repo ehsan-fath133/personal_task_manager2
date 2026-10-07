@@ -21,20 +21,7 @@ if admin == "yes":
 
 tasks = []
 
-while True:
-    task = input("Enter a task (or type end to finish): ")
 
-    if task == "end":
-        break
-
-    add_task(tasks, task)
-
-save_tasks(tasks)
-show_tasks(tasks)
-name = input("What is your name: ")
-print("Welcome")
-
-tasks = []
 
 while True:
     task = input("Enter a task (or type end to finish): ")
