@@ -1,6 +1,5 @@
 from dotenv import load_dotenv
 import os
-
 from tasks import add_task, show_tasks, save_tasks
 
 load_dotenv()
@@ -21,72 +20,19 @@ if admin == "yes":
 
 tasks = []
 
-
-
-while True:
-    task = input("Enter a task (or type end to finish): ")
-
-
-
-    if task == "end":
-        break
-
-
-
-    tasks.append(task)
-    
-
-print("Your tasks:")
-
-for task in tasks:
-    print(task)
-    from tasks import add_task, show_tasks
-
-name = input("What is your name: ")
-print(f"Welcome, {name}")
-
-tasks = []
-
 while True:
     task = input("Enter a task (or type end to finish): ")
 
     if task == "end":
         break
 
-    add_task(tasks, task)
+    priority = input("Enter priority (low/medium/high): ").lower()
 
-show_tasks(tasks)
+    while priority not in ["low", "medium", "high"]:
+        print("Invalid priority, please choose low or medium or high.")
+        priority = input("Enter priority (low/medium/high): ").lower()
 
-def add_task(tasks, task):
-    tasks.append(task)
-
-
-def show_tasks(tasks):
-    print("Your tasks:")
-
-    for task in tasks:
-        print(task)
-
-
-def save_tasks(tasks):
-    with open("tasks.txt", "w") as file:
-        for task in tasks:
-            file.write(task + " - ")
-            from tasks import add_task, show_tasks, save_tasks
-
-name = input("What is your name: ")
-
-print(f"Welcome, {name}")
-
-tasks = []
-
-while True:
-    task = input("Enter a task (or type end to finish): ")
-
-    if task == "end":
-        break
-
-    add_task(tasks, task)
+    add_task(tasks, task, priority)
 
 save_tasks(tasks)
 show_tasks(tasks)
