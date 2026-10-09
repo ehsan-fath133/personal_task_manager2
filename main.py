@@ -6,7 +6,7 @@ load_dotenv()
 
 name = input("What is your name: ")
 
-print(f"Welcome, {name}")
+print(f"Welcome you, {name}")
 
 admin = input("Do you want to enter Admin Mode? ")
 
